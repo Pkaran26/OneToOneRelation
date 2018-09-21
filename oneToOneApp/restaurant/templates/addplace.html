@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant</title>
+</head>
+<body>
+    <h2>Restaurant App</h2>
+    <hr/>
+    <ul>
+        <li>
+            <a href="./">Home</a>
+        </li>
+        <li>
+            <a href="./placeform">Add Place</a>
+        </li>
+        <li>
+            <a href="./restaurantform">Add Restaurant</a>
+        </li>
+        <li>
+            <a href="./placelist">Display Places</a>
+        </li>
+    </ul>    
+    <hr/>
+    <div>
+        <form action="./addplace" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        <input type="text" name="name" id="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        <input type="text" name="addr" id="">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

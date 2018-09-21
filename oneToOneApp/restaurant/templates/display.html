@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant</title>
+</head>
+<body>
+    <h2>Restaurant App</h2>
+    <hr/>
+    <ul>
+        <li>
+            <a href="./">Home</a>
+        </li>
+        <li>
+            <a href="./placeform">Add Place</a>
+        </li>
+        <li>
+            <a href="./restaurantform">Add Restaurant</a>
+        </li>
+        <li>
+            <a href="./placelist">Display Places</a>
+        </li>
+    </ul>    
+    <hr/>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Place</th>
+                <th>serves_hot_dogs</th>
+                <th>serves_Pizza</th>
+            </tr>
+            {% load replaceYesNo %}
+            {% for r in places %}
+            <tr>
+                <td>{{r.place}}</td>
+                <td>{{r.serves_hot_dogs | replaceYesNo}}</td>
+                <td>{{r.serves_pizza | replaceYesNo}}</td>
+                <td>
+                    <a href="{% url 'delrestaurant' r %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

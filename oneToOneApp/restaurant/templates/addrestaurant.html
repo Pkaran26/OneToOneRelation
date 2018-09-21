@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant</title>
+</head>
+<body>
+    <h2>Restaurant App</h2>
+    <hr/>
+    <ul>
+        <li>
+            <a href="./">Home</a>
+        </li>
+        <li>
+            <a href="./placeform">Add Place</a>
+        </li>
+        <li>
+            <a href="./restaurantform">Add Restaurant</a>
+        </li>
+        <li>
+            <a href="./placelist">Display places</a>
+        </li>
+    </ul>    
+    <hr/>
+    <div>
+        <form action="./addrestaurant" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Name of Place</th>
+                    <td>
+                        <select name="place" id="">
+                            <option value="">Select</option>
+                            {% for p in places %}
+                            <option value="{{p.id}}">{{p.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Serves Hot Dogs</th>
+                    <td>
+                        <select name="hotdogs" id="">
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Serves Pizza</th>
+                    <td>
+                        <select name="pizza" id="">
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
